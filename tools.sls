@@ -65,21 +65,8 @@ bzip2:
 # encryption tools
 #
 
-{% if grains['oscodename'] == 'squeeze' %}
-gnupg:
-  pkg.installed
-{% else %}
-gnupg:
-  pkg.installed
-{% endif %}
 gpgv:
   pkg.installed
-openssl:
-  pkg.installed
-{% if grains.osmajorrelease < 9 %}
-openssl-blacklist:
-  pkg.installed
-{% endif %}
 
 #
 # languages
@@ -87,26 +74,21 @@ openssl-blacklist:
 
 perl:
   pkg.installed
-#ruby:
-#  pkg.installed
 python:
   pkg.installed
-{% if grains['oscodename'] == 'jessie' or grains['oscodename'] == 'wheezy' %}
-php5-cli:
-  pkg.installed
-php5-sqlite:
-  pkg.installed
+php:
+  pkg.installed:
+    - pkgs:
+{% if grains['oscodename'] == 'jessie' or grains['oscodename'] == 'wheezy' or grains['oscodename'] == 'squeeze' %}
+      - php5-cli
+      - php5-sqlite
 {% else %}
-php-cli:
-  pkg.installed
-php-bz2:
-  pkg.installed
-php-curl:
-  pkg.installed
-php-sqlite3:
-  pkg.installed
+      - php-cli
+      - php-bz2
+      - php-mbstring
+      - php-sqlite3
+      - php-curl
 {% endif %}
-
 
 #
 # web tools
@@ -116,81 +98,29 @@ curl:
   pkg.installed
 wget:
   pkg.installed
-#wput:
-#  pkg.installed
-#ftp:
-#  pkg.installed
-
 
 #
 # network tools
 #
 
-whois:
-  pkg.installed
 host:
-  pkg.installed
-dnsutils:
   pkg.installed
 lsof:
   pkg.installed
-#net-tools:
-#  pkg.installed
-netcat-openbsd:
-  pkg.installed
-ngrep:
-  pkg.installed
-tcpdump:
-  pkg.installed
-nload:
-  pkg.installed
 traceroute:
   pkg.installed
-telnet:
-  pkg.installed
-#tcpd:
-#  pkg.installed
 iproute2:
   pkg.installed
-nmap:
+dnsutils:
   pkg.installed
-ipcalc:
-  pkg.installed
-
 
 #
 # versioning
 #
 
-git:
-  pkg.installed
-patch:
-  pkg.installed
 rsync:
   pkg.installed
 
-#
-# build tools
-#
-
-#autoconf:
-#  pkg.installed
-#automake:
-#  pkg.installed
-#binutils:
-#  pkg.installed
-#build-essential:
-#  pkg.installed
-#dh-make-php:
-#  pkg.installed
-#fakeroot
-#  pkg.installed
-#gcc:
-#  pkg.installed
-#g++:
-#  pkg.installed
-#make:
-#  pkg.installed
 
 # install to verify certificates
 ca-certificates:
