@@ -6,7 +6,7 @@ Basic saltstack states to make a minimal server configuration.
 
 Add these to your saltstack states:
 
-    git submodules add https://github.com/cebe-cc/salt-basic.git salt/basic
+    git submodule add https://github.com/cebe-cc/salt-basic.git salt/basic
     
 The states are independent of their actual location in the state file tree, so you may replace `salt/basic` with a location of your choice.
 
