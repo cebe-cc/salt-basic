@@ -1,10 +1,19 @@
-# salt-base
+# salt-basic
+
 Basic saltstack states to make a minimal server configuration.
+
+## Usage
+
+Add these to your saltstack states:
+
+    git submodules add https://github.com/cebe-cc/salt-basic.git salt/basic
+    
+The states are independent of their actual location in the state file tree, so you may replace `salt/basic` with a location of your choice.
 
 ## Supported OSs
 
 - Debian
-  - 6, `squeeze`
+  - 6, `squeeze` (untested)
   - 7, `wheezy`
   - 8, `jessie`
   - 9, `stretch`
