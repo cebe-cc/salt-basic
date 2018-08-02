@@ -1,9 +1,12 @@
 include:
   - .apt
   - .apt-upgrades
-  - .tools
-  - .ntp
+  - .bash
   - .nfs
+  - .ntp
   - .ssh
+  - .tools
+#  - .tools-extra
+#  - .tools-build
   - .vim
 
