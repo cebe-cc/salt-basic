@@ -14,24 +14,24 @@
 {% endif %}
 {% if grains['oscodename'] == 'wheezy' %}
 backports:
-    pkgrepo.managed:
-          - humanname: Debian Wheezy Backports
-          - name: deb http://http.debian.net/debian wheezy-backports main
-          - file: /etc/apt/sources.list.d/wheezy-backports.list
+  pkgrepo.managed:
+    - humanname: Debian Wheezy Backports
+    - name: deb http://http.debian.net/debian wheezy-backports main
+    - file: /etc/apt/sources.list.d/wheezy-backports.list
 {% endif %}
 {% if grains['oscodename'] == 'jessie' %}
 backports:
-    pkgrepo.managed:
-          - humanname: Debian Jessie Backports
-          - name: deb  http://httpredir.debian.org/debian jessie-backports main
-          - file: /etc/apt/sources.list.d/backports.list
+  pkgrepo.managed:
+    - humanname: Debian Jessie Backports
+    - name: deb  http://httpredir.debian.org/debian jessie-backports main
+    - file: /etc/apt/sources.list.d/backports.list
 {% endif %}
 {% if grains['oscodename'] == 'stretch' %}
 backports:
-    pkgrepo.managed:
-          - humanname: Debian Stretch Backports
-          - name: deb  http://httpredir.debian.org/debian stretch-backports main
-          - file: /etc/apt/sources.list.d/backports.list
+  pkgrepo.managed:
+    - humanname: Debian Stretch Backports
+    - name: deb  http://httpredir.debian.org/debian stretch-backports main
+    - file: /etc/apt/sources.list.d/backports.list
 {% endif %}
 
 {% endif %}
