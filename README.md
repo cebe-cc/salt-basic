@@ -26,6 +26,15 @@ The states are independent of their actual location in the state file tree, so y
 - disable NFS if not required, fixes [issue with pre-installed portmapper deamon](https://www.bsi.bund.de/EN/Topics/IT-Crisis-Management/CERT-Bund/CERT-Reports/HOWTOs/Open-Portmapper-Services/open-Portmapper-services_node.html) (`nfs.sls`)
 - :construction: ensure time synchronisation is configured properly, either via NTP or [systemd-timesyncd](https://wiki.archlinux.org/index.php/Systemd-timesyncd) (`ntp.sls`)
 - create an SSH key for root (`ssh.sls`)
+- manage SSH authorized keys for user `root`. If present in pillar, keys will be added to `/root/.ssh/authorized_keys`:
+
+  ```yaml
+  # configure ssh authorized_keys in pillar
+  ssh:
+    authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAA...IawH9LTTF2C8D4Vl you@example.com
+  ```
+
 - install common cli tools (`tools.sls`, optional: `tools-extra.sls`, `tools-build.sls`)
 - :construction: Make sure a full VI editor is installed and configured (`vim.sls`)
 - :construction: GIT and GIT config
