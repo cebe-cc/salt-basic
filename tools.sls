@@ -74,7 +74,7 @@ gpgv:
 
 perl:
   pkg.installed
-python:
+python3:
   pkg.installed
 php:
   pkg.installed:
