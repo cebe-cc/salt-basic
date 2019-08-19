@@ -5,7 +5,7 @@ unattended-upgrades:
 
 /etc/apt/apt.conf.d/20auto-upgrades:
   file.managed:
-    - content: |
+    - contents: |
         APT::Periodic::Update-Package-Lists "1";
         APT::Periodic::Unattended-Upgrade "1";
     - require:
