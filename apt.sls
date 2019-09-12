@@ -4,14 +4,6 @@
 
 {% if grains['os'] == 'Debian' %}
   
-{% if grains['oscodename'] == 'squeeze' %}
-/etc/apt/sources.list.d/debian-lts.list:
-  file.managed:
-    - contents: "deb http://http.debian.net/debian/ squeeze-lts main"
-    - user: root
-    - group: root
-    - mode: 0644
-{% endif %}
 {% if grains['oscodename'] == 'wheezy' %}
 backports:
   pkgrepo.managed:
