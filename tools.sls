@@ -79,7 +79,7 @@ python3:
 php:
   pkg.installed:
     - pkgs:
-{% if grains['oscodename'] == 'jessie' or grains['oscodename'] == 'wheezy' or grains['oscodename'] == 'squeeze' %}
+{% if grains['oscodename'] == 'jessie' or grains['oscodename'] == 'wheezy' %}
       - php5-cli
       - php5-sqlite
 {% else %}
