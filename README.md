@@ -13,7 +13,6 @@ The states are independent of their actual location in the state file tree, so y
 ## Supported OSs
 
 - Debian
-  - 6, `squeeze` (untested)
   - 7, `wheezy`
   - 8, `jessie`
   - 9, `stretch`
