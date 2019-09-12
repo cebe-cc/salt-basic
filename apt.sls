@@ -35,3 +35,6 @@ backports:
 {% endif %}
 
 {% endif %}
+
+apt-transport-https:
+  pkg.installed
