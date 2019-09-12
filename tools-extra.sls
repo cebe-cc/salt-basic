@@ -38,13 +38,8 @@ lzma:
 # encryption tools
 #
 
-{% if grains['oscodename'] == 'squeeze' %}
-gnupg:
-  pkg.installed
-{% else %}
 gnupg2:
   pkg.installed
-{% endif %}
 openssl:
   pkg.installed
 {% if grains.osmajorrelease < 9 %}
