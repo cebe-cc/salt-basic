@@ -2,7 +2,7 @@ include:
   - .apt
   - .apt-upgrades
   - .bash
-  - .nfs
+#  - .nfs
   - .ntp
   - .ssh
   - .tools
