@@ -26,6 +26,13 @@ backports:
     - file: /etc/apt/sources.list.d/backports.list
 {% endif %}
 
+{% if grains['oscodename'] == 'buster' %}
+backports:
+  pkgrepo.managed:
+    - humanname: Debian Buster Backports
+    - name: deb  http://httpredir.debian.org/debian buster-backports main
+    - file: /etc/apt/sources.list.d/backports.list
+{% endif %}
 {% endif %}
 
 apt-transport-https:
