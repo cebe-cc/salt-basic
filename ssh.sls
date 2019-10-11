@@ -16,3 +16,6 @@ sshkeys:
       {% endfor %}
 
 {%endif%}
+
+sshpass:
+  pkg.installed
