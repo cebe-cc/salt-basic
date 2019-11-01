@@ -27,11 +27,19 @@ backports:
 {% endif %}
 
 {% if grains['oscodename'] == 'buster' %}
+python-apt:
+  pkg.installed
+python3-apt:
+  pkg.installed
+
 backports:
   pkgrepo.managed:
     - humanname: Debian Buster Backports
     - name: deb  http://httpredir.debian.org/debian buster-backports main
     - file: /etc/apt/sources.list.d/backports.list
+    - require:
+        - pkg: python-apt
+        - pkg: python3-apt
 {% endif %}
 {% endif %}
 
