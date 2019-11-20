@@ -27,10 +27,13 @@ backports:
 {% endif %}
 
 {% if grains['oscodename'] == 'buster' %}
-python-apt:
-  pkg.installed
+{% if grains['pythonversion'][0] == 3 %}
 python3-apt:
   pkg.installed
+{% else %}
+python-apt:
+  pkg.installed
+{% endif %}
 
 backports:
   pkgrepo.managed:
@@ -38,8 +41,11 @@ backports:
     - name: deb  http://httpredir.debian.org/debian buster-backports main
     - file: /etc/apt/sources.list.d/backports.list
     - require:
-        - pkg: python-apt
+        {% if grains['pythonversion'][0] == 3 %}
         - pkg: python3-apt
+        {% else %}
+        - pkg: python-apt
+        {% endif %}
 {% endif %}
 {% endif %}
 
