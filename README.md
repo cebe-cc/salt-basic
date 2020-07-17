@@ -22,7 +22,7 @@ The states are independent of their actual location in the state file tree, so y
 
 - Add LTS package repos and Debian backports, also install `https` transport for apt (`apt.sls`)
 - Enable automatic security upgrades (`apt-upgrades.sls`)
-- :construction: configure a nice bashrc (`bash.sls`)
+- configure a nice bashrc, profile and motd (`bash.sls`)
 - disable NFS if not required, fixes [issue with pre-installed portmapper deamon](https://www.bsi.bund.de/EN/Topics/IT-Crisis-Management/CERT-Bund/CERT-Reports/HOWTOs/Open-Portmapper-Services/open-Portmapper-services_node.html) (`nfs.sls`)
 - :construction: ensure time synchronisation is configured properly, either via NTP or [systemd-timesyncd](https://wiki.archlinux.org/index.php/Systemd-timesyncd) (`ntp.sls`)
 - create an SSH key for root (`ssh.sls`)

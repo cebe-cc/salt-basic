@@ -4,8 +4,6 @@
 
 cowsay:
   pkg.installed
-figlet:
-  pkg.installed
 
 #
 # monitoring / system status
