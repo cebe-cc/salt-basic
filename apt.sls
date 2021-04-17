@@ -10,6 +10,10 @@ backports:
     - humanname: Debian Wheezy Backports
     - name: deb http://http.debian.net/debian wheezy-backports main
     - file: /etc/apt/sources.list.d/wheezy-backports.list
+
+apt-transport-https:
+  pkg.installed
+
 {% endif %}
 {% if grains['oscodename'] == 'jessie' %}
 backports:
@@ -17,6 +21,9 @@ backports:
     - humanname: Debian Jessie Backports
     - name: deb  http://httpredir.debian.org/debian jessie-backports main
     - file: /etc/apt/sources.list.d/backports.list
+
+apt-transport-https:
+  pkg.installed
 {% endif %}
 {% if grains['oscodename'] == 'stretch' %}
 backports:
@@ -24,6 +31,9 @@ backports:
     - humanname: Debian Stretch Backports
     - name: deb  http://httpredir.debian.org/debian stretch-backports main
     - file: /etc/apt/sources.list.d/backports.list
+
+apt-transport-https:
+  pkg.installed
 {% endif %}
 
 {% if grains['oscodename'] == 'buster' %}
@@ -46,8 +56,7 @@ backports:
         {% else %}
         - pkg: python-apt
         {% endif %}
-{% endif %}
-{% endif %}
 
-apt-transport-https:
-  pkg.installed
+# apt-transport-https is now part of apt itself, no need to install separately
+{% endif %}
+{% endif %}
