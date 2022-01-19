@@ -72,8 +72,13 @@ gpgv:
 
 perl:
   pkg.installed
+{% if grains['oscodename'] == 'bullseye' %}
 python3:
   pkg.installed
+{% else %}
+python:
+  pkg.installed
+{% endif %}
 php:
   pkg.installed:
     - pkgs:
@@ -81,11 +86,19 @@ php:
       - php5-cli
       - php5-sqlite
 {% else %}
+{% if pillar.php.version is defined %}
+      - php{{ pillar.php.version }}-cli
+      - php{{ pillar.php.version }}-bz2
+      - php{{ pillar.php.version }}-mbstring
+      - php{{ pillar.php.version }}-sqlite3
+      - php{{ pillar.php.version }}-curl
+{% else %}
       - php-cli
       - php-bz2
       - php-mbstring
       - php-sqlite3
       - php-curl
+{% endif %}
 {% endif %}
 
 #
