@@ -114,10 +114,8 @@ wget:
 # network tools
 #
 
-{% if grains['oscodename'] != 'buster' %}
-host:
+bind9-host:
   pkg.installed
-{% endif %}
 lsof:
   pkg.installed
 traceroute:
