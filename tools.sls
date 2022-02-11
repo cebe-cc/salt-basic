@@ -86,7 +86,7 @@ php:
       - php5-cli
       - php5-sqlite
 {% else %}
-{% if pillar.php.version is defined %}
+{% if pillar.php is defined and pillar.php.version is defined %}
       - php{{ pillar.php.version }}-cli
       - php{{ pillar.php.version }}-bz2
       - php{{ pillar.php.version }}-mbstring
