@@ -72,7 +72,7 @@ gpgv:
 
 perl:
   pkg.installed
-{% if grains['oscodename'] == 'bullseye' %}
+{% if grains['oscodename'] == 'bullseye' or grains['oscodename'] == 'bookworm' %}
 python3:
   pkg.installed
 {% else %}

@@ -48,7 +48,7 @@ figlet:
         #!/bin/sh
 
         figlet `cat /etc/hostname | sed 's/\([a-z]*\).*/\1/'`
-        echo "{{ grains.id }}  running  {{ grains.lsb_distrib_description }}"
+        echo "{{ grains.id }}  running  {{ grains.lsb_distrib_description if 'lsb_distrib_description' in grains else grains.osfullname  }}"
 
         upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
         secs=$((${upSeconds}%60))
